@@ -354,16 +354,94 @@ console.log("After Shifting: " + arr2); // Output: [1, true]
 arr2.unshift("Love");
 console.log("After Unshifting: " + arr2); // Output: ["Love", 1, true]
 
+/* **slice =>** Slices the array and creates a shallow copy of it */
+arr3 = arr1.slice(1, 3);
+console.log(arr3);
+
+/* **splice =>** Changes the array content (insert, remove, replace) */
+// First num - the start element index to be dealt with
+// Second num - count of the number of next elements to be deleted or replaced
+// Third val - if the value is present, it replaces the value, or this value is inserted; if not present, only the selected values are deleted
+arr1.splice(0, 1, "Replaced Content");
+console.log(arr1);
+
+/* **map =>** Runs a function over a given array and stores the result in a new or same array */
+let answerArray = arr1.map((el) => el * el);
+console.log(answerArray); // [NaN, 4, 9]
+
+/* **filter =>** Uses a function to filter out values from an array */
+let arr4 = [21, 34, 3, 532, 566778, 24545, 222, 333, 777];
+let oddArray = arr4.filter((el) => el % 2 !== 0);
+console.log(oddArray); // Filters out odd values from arr4
+
+/* **reduce =>** Computes a single value from the whole array */
+let sumOfArr4 = arr4.reduce((acc, curr) => acc + curr, 0);
+console.log(sumOfArr4); // Output: Sum of arr4 elements
+
+/* **sort =>**
+   - For a string array, sort can easily arrange elements in lexicographical order.
+   - For a number array, sort converts elements to strings before sorting.
+   - To sort numbers accurately, use a compare function. */
+let stringArray = [
+  "love",
+  "you",
+  "all",
+  "from",
+  "the",
+  "depth",
+  "of",
+  "my",
+  "heart",
+];
+stringArray.sort();
+console.log(stringArray);
+
+let compareAscending = (x, y) => x - y;
+let compareDescending = (x, y) => y - x;
+
+arr4.sort(compareAscending);
+console.log(arr4); // Sorted in ascending order
+arr4.sort(compareDescending);
+console.log(arr4); // Sorted in descending order
+
+/* **indexOf =>** Finds the index of an element in an array */
+let indexOfArr = stringArray.indexOf("Love");
+console.log(indexOfArr); // Returns -1 if not found
+
+/* **forEach =>** Performs operations on all elements in an array */
+arr4.forEach((el, index) => {
+  console.log("Number: " + el + " Index: " + index);
+});
+
+// **for...in:**
+// - Used to iterate over the *keys* (properties) of an object or array.
+let obj4 = { name: "Utkarsh", age: 25, country: "India" };
+console.log("Using for...in with an object:");
+for (let key in obj4) {
+  console.log(`Key: ${key}, Value: ${obj4[key]}`);
+}
+
+let array = ["a", "b", "c"];
+console.log("Using for...in with an array:");
+for (let index in array) {
+  console.log(`Index: ${index}, Value: ${array[index]}`);
+}
+
+// **for...of:**
+// - Used to iterate over *values* of an iterable (like an array, string, or map).
+console.log("Using for...of with an array:");
+for (let value of array) {
+  console.log(`Value: ${value}`);
+}
+
+let string = "Hello";
+console.log("Using for...of with a string:");
+for (let char of string) {
+  console.log(`Character: ${char}`);
+}
+
 /* **Key Notes:**
    - Functions can be declared in multiple ways: regular, variable, or arrow functions.
    - Objects allow flexible representation of data as key-value pairs.
    - Arrays are versatile collections with many built-in methods for manipulation.
 */
-
-// slice
-// splice
-// map
-// filter
-// reduce
-// sort
-// fincd
