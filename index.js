@@ -1,3 +1,5 @@
+const lodash = require("lodash");
+
 // **Variables and Data Types in JavaScript**
 
 // Variables are named memory locations used to store data.
@@ -248,39 +250,120 @@ console.log(fullname.indexOf("P")); // Example: Index of character "P"
    - Template literals (`` `...` ``) are preferred for better readability and embedded expressions.
 */
 
-//functions
-// function printing(i) {
-//   console.log("Hello world" + i);
-// }
+// **Understanding Functions, Objects, and Arrays in JavaScript**
 
-// for (let i = 0; i < 3; i++) {
-//   printing(i);
-// }
+/* **Functions:**
+   - Blocks of reusable code that can be invoked to perform a task.
+   - Can have parameters and may return a value.
+*/
 
-//return functions
-// function average(a, b) {
-//   return a + b / 2;
-// }
-// console.log(average(1, 4));
+// **Example of a Function:**
+function printing(i) {
+  console.log("Hello world " + i);
+}
+for (let i = 0; i < 3; i++) {
+  printing(i); // Calls the function with the current value of `i`
+}
 
-// varible function declaration
+// **Returning Functions:**
+function average(a, b) {
+  return (a + b) / 2; // Returns the average of two numbers
+}
+console.log(average(1, 4)); // Output: 2.5
+
+// **Variable Function Declaration:**
 let multiplyFunc = function (a, b) {
   return a * b;
 };
-console.log(multiplyFunc(5, 7));
+console.log(multiplyFunc(5, 7)); // Output: 35
 
-// arrow functions
+// **Arrow Functions:**
 let hello = (title) => {
   return title + " " + title;
 };
-console.log(hello("myname"));
+console.log(hello("myname")); // Output: myname myname
 
-//arrays in js 
+/* **Reference Datatypes in JavaScript:**
+   - Stored in heap memory, while their references are stored in stack memory.
+   - Examples: Objects, Arrays, and Functions.
+   - These datatypes do not have a fixed size.
+*/
 
-//prmitive datatypes are stored in stack memory 
-// reference datatypes are stored in heap memory 
+// **Objects:**
+// - Objects consist of key-value pairs.
+let obj = {
+  naam: "Utkarsh",
+  age: "25",
+  nationality: "India",
+  greet: (title, x = 1) => {
+    for (let i = 0; i < x; i++) {
+      console.log(title); // Prints the greeting message `x` times
+    }
+  },
+};
+console.log(obj); // Logs the entire object
+obj.greet("Namaste Sir", 3); // Calls the `greet` method
 
-//objects are simply key value pairs
-let obj = {};
+/* **Creating Copies of Objects:**
+   - Shallow Copy: Points to the same memory location as the original object.
+   - Deep Copy: Creates a new, independent object in memory.
+*/
 
+// **Shallow Copy Example:**
+let obj1 = obj; // `obj1` is a reference to `obj`
+obj1.naam = "Modified Name"; // Changing `obj1` also affects `obj`
 
+// **Deep Copy Methods:**
+// - **Method 1: Using `lodash`:**
+const deepCopy = lodash.cloneDeep(obj); // Creates an independent deep copy
+console.log(deepCopy);
+
+// - **Method 2: Using Destructuring:**
+let { greet, ...deepCopy1 } = obj; // Excludes `greet` while copying
+console.log("Deepcopy 1: ", deepCopy1);
+
+// **Arrays:**
+// - Arrays are collections of items.
+// - Can be declared using literal notation `[]` or the `Array` constructor.
+let arr1 = [1, 2, 3];
+console.log("Normal array literal: " + arr1);
+
+let arr2 = new Array("love", 1, true);
+console.log("Array constructor: " + arr2);
+
+/* **Array Methods:**
+   - `push`: Adds an element to the end of the array.
+   - `pop`: Removes the last element of the array.
+   - `shift`: Removes the first element of the array.
+   - `unshift`: Adds an element to the start of the array.
+*/
+
+// **Push Example:**
+arr1.push("Pushed");
+console.log("After Pushing: " + arr1); // Output: [1, 2, 3, "Pushed"]
+
+// **Pop Example:**
+arr1.pop();
+console.log("After Popping: " + arr1); // Output: [1, 2, 3]
+
+// **Shift Example:**
+arr2.shift();
+console.log("After Shifting: " + arr2); // Output: [1, true]
+
+// **Unshift Example:**
+arr2.unshift("Love");
+console.log("After Unshifting: " + arr2); // Output: ["Love", 1, true]
+
+/* **Key Notes:**
+   - Functions can be declared in multiple ways: regular, variable, or arrow functions.
+   - Objects allow flexible representation of data as key-value pairs.
+   - Arrays are versatile collections with many built-in methods for manipulation.
+*/
+
+// slice
+// splice
+// map
+// filter
+// reduce
+// sort
+// fincd
