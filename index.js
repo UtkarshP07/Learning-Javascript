@@ -274,3 +274,13 @@ let hello = (title) => {
   return title + " " + title;
 };
 console.log(hello("myname"));
+
+//arrays in js 
+
+//prmitive datatypes are stored in stack memory 
+// reference datatypes are stored in heap memory 
+
+//objects are simply key value pairs
+let obj = {};
+
+
